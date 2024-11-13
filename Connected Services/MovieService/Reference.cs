@@ -154,67 +154,6 @@ namespace Project445.MovieService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Genre", Namespace="http://schemas.datacontract.org/2004/07/MovieService")]
-    [System.SerializableAttribute()]
-    public partial class Genre : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MovieService.IService1")]
     public interface IService1 {
@@ -236,30 +175,6 @@ namespace Project445.MovieService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNowPlayingMovies", ReplyAction="http://tempuri.org/IService1/GetNowPlayingMoviesResponse")]
         System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetNowPlayingMoviesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPopularMovies", ReplyAction="http://tempuri.org/IService1/GetPopularMoviesResponse")]
-        Project445.MovieService.Movie[] GetPopularMovies();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPopularMovies", ReplyAction="http://tempuri.org/IService1/GetPopularMoviesResponse")]
-        System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetPopularMoviesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTopRatedMovies", ReplyAction="http://tempuri.org/IService1/GetTopRatedMoviesResponse")]
-        Project445.MovieService.Movie[] GetTopRatedMovies();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTopRatedMovies", ReplyAction="http://tempuri.org/IService1/GetTopRatedMoviesResponse")]
-        System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetTopRatedMoviesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMovieGenres", ReplyAction="http://tempuri.org/IService1/GetMovieGenresResponse")]
-        Project445.MovieService.Genre[] GetMovieGenres();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMovieGenres", ReplyAction="http://tempuri.org/IService1/GetMovieGenresResponse")]
-        System.Threading.Tasks.Task<Project445.MovieService.Genre[]> GetMovieGenresAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMoviesByGenre", ReplyAction="http://tempuri.org/IService1/GetMoviesByGenreResponse")]
-        Project445.MovieService.Movie[] GetMoviesByGenre(int genreId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMoviesByGenre", ReplyAction="http://tempuri.org/IService1/GetMoviesByGenreResponse")]
-        System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetMoviesByGenreAsync(int genreId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -311,38 +226,6 @@ namespace Project445.MovieService {
         
         public System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetNowPlayingMoviesAsync() {
             return base.Channel.GetNowPlayingMoviesAsync();
-        }
-        
-        public Project445.MovieService.Movie[] GetPopularMovies() {
-            return base.Channel.GetPopularMovies();
-        }
-        
-        public System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetPopularMoviesAsync() {
-            return base.Channel.GetPopularMoviesAsync();
-        }
-        
-        public Project445.MovieService.Movie[] GetTopRatedMovies() {
-            return base.Channel.GetTopRatedMovies();
-        }
-        
-        public System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetTopRatedMoviesAsync() {
-            return base.Channel.GetTopRatedMoviesAsync();
-        }
-        
-        public Project445.MovieService.Genre[] GetMovieGenres() {
-            return base.Channel.GetMovieGenres();
-        }
-        
-        public System.Threading.Tasks.Task<Project445.MovieService.Genre[]> GetMovieGenresAsync() {
-            return base.Channel.GetMovieGenresAsync();
-        }
-        
-        public Project445.MovieService.Movie[] GetMoviesByGenre(int genreId) {
-            return base.Channel.GetMoviesByGenre(genreId);
-        }
-        
-        public System.Threading.Tasks.Task<Project445.MovieService.Movie[]> GetMoviesByGenreAsync(int genreId) {
-            return base.Channel.GetMoviesByGenreAsync(genreId);
         }
     }
 }
