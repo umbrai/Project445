@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MovieService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MovieService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:62707/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://webstrar11.fulton.asu.edu/Page10/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ArrayOfMovie">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Movie" nillable="true" type="tns:Movie" />
@@ -19,17 +19,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Movie" nillable="true" type="tns:Movie" />
-  <xs:complexType name="ArrayOfGenre">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Genre" nillable="true" type="tns:Genre" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfGenre" nillable="true" type="tns:ArrayOfGenre" />
-  <xs:complexType name="Genre">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Genre" nillable="true" type="tns:Genre" />
 </xs:schema>
