@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project445", "Project445.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService", "..\MovieService\MovieService.csproj", "{38DFFC9F-0E3F-4817-BB4C-A95EB354B859}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityLibrary", "..\SecurityLibrary\SecurityLibrary.csproj", "{B432921D-C04E-4BFC-B491-988B10D24677}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{38DFFC9F-0E3F-4817-BB4C-A95EB354B859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38DFFC9F-0E3F-4817-BB4C-A95EB354B859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38DFFC9F-0E3F-4817-BB4C-A95EB354B859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B432921D-C04E-4BFC-B491-988B10D24677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B432921D-C04E-4BFC-B491-988B10D24677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B432921D-C04E-4BFC-B491-988B10D24677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B432921D-C04E-4BFC-B491-988B10D24677}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
