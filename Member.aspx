@@ -106,7 +106,7 @@
                 <div class="dropdown-menu">
                     <asp:Label ID="UserNameLabel" runat="server" Text="Welcome, User"></asp:Label>
                     <a href="ChangePassword.aspx">Change Password</a>
-                    <a href="Logout.aspx">Logout</a>
+                    <a href="Home.aspx">Logout</a>
                 </div>
             </div>
 

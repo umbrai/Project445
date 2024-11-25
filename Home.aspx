@@ -83,6 +83,11 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
+            <div class="button-group">
+                <asp:Button ID="Button2" runat="server" Text="Go to Staff Login" CssClass="btn" OnClick="StaffLoginButton_Click" />
+            </div>
+
+
             <!-- Home Button -->
             <div class="home-button">
                 <asp:LinkButton ID="HomeButton" runat="server" Text="Home" OnClick="HomeButton_Click" CssClass="btn" />
