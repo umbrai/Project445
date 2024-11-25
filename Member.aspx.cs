@@ -110,5 +110,30 @@ namespace Project445
                 carouselInner.Controls.Add(carouselItem);
             }
         }
+
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Clear session
+            Session.Clear();
+            Session.Abandon();
+
+            // Clear cookies
+            if (Request.Cookies["UserProfile"] != null)
+            {
+                HttpCookie cookie = new HttpCookie("UserProfile")
+                {
+                    Expires = DateTime.Now.AddDays(-1) // Expire the cookie
+                };
+                Response.Cookies.Add(cookie);
+            }
+
+            // Redirect to Login page
+            Response.Redirect("Home.aspx");
+        }
+
     }
+
+    
+
 }
