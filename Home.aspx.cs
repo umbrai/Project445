@@ -8,7 +8,6 @@ namespace Project445
 {
     public partial class Home : System.Web.UI.Page
     {
-        //this page tests and runs the movie service 
         private readonly Service1Client _movieServiceClient = new Service1Client();
 
 
