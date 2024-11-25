@@ -11,7 +11,7 @@ namespace Project445
 {
 
 
-    public partial class Home
+    public partial class Login
     {
 
         /// <summary>
@@ -24,102 +24,84 @@ namespace Project445
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Button2 control.
+        /// lblLoginMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Label lblLoginMessage;
 
         /// <summary>
-        /// HomeButton control.
+        /// txtLoginUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton HomeButton;
+        protected global::System.Web.UI.WebControls.TextBox txtLoginUserID;
 
         /// <summary>
-        /// SearchBox control.
+        /// txtLoginPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchBox;
+        protected global::System.Web.UI.WebControls.TextBox txtLoginPassword;
 
         /// <summary>
-        /// SearchButton control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
-        /// LoginButton control.
+        /// lblRegisterMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.WebControls.Label lblRegisterMessage;
 
         /// <summary>
-        /// UpcomingMoviesPanel control.
+        /// txtRegisterUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel UpcomingMoviesPanel;
+        protected global::System.Web.UI.WebControls.TextBox txtRegisterUserID;
 
         /// <summary>
-        /// UpcomingMoviesCarousel control.
+        /// txtRegisterPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UpcomingMoviesCarousel;
+        protected global::System.Web.UI.WebControls.TextBox txtRegisterPassword;
 
         /// <summary>
-        /// NowPlayingMoviesPanel control.
+        /// txtRegisterCaptcha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel NowPlayingMoviesPanel;
+        protected global::System.Web.UI.WebControls.TextBox txtRegisterCaptcha;
 
         /// <summary>
-        /// NowPlayingMoviesCarousel control.
+        /// btnRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NowPlayingMoviesCarousel;
-
-        /// <summary>
-        /// SearchResultsPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel SearchResultsPanel;
-
-        /// <summary>
-        /// SearchResultsSection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SearchResultsSection;
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }
