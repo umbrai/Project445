@@ -6,38 +6,32 @@ using Project445.MovieService;
 
 namespace Project445
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Member : System.Web.UI.Page
     {
-        //this page tests and runs the movie service 
         private readonly Service1Client _movieServiceClient = new Service1Client();
-
-
 
         protected async void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInUser"] == null)
+            {
+                // Redirect to the Login page without ending the thread
+                Response.Redirect("Login.aspx", false);
+                Context.ApplicationInstance.CompleteRequest(); // Ensures the redirection is completed
+                return; // Prevent further execution
+            }
+
             if (!IsPostBack)
             {
+                UserNameLabel.Text = $"Welcome, {Session["LoggedInUser"]}";
                 await LoadUpcomingMovies();
                 await LoadNowPlayingMovies();
             }
         }
 
-        protected void LoginButton_Click(object sender, EventArgs e)
-        {
-            // Redirect to Login page
-            Response.Redirect("Login.aspx");
-        }
-
         protected void HomeButton_Click(object sender, EventArgs e)
         {
             // Redirect to Home (refresh page)
-            Response.Redirect("Home.aspx");
-        }
-
-        protected void StaffLoginButton_Click(object sender, EventArgs e)
-        {
-            // Redirect to Login page
-            Response.Redirect("StaffLogin.aspx");
+            Response.Redirect("Member.aspx");
         }
 
         protected async void SearchButton_Click(object sender, EventArgs e)
@@ -60,20 +54,14 @@ namespace Project445
 
         private async Task LoadUpcomingMovies()
         {
-            // Use Task.FromResult to wrap the synchronous WCF call
             var upcomingMovies = await Task.FromResult(_movieServiceClient.GetUpcomingMovies());
-
-            // Display movies and control visibility
             DisplayMovies(upcomingMovies, UpcomingMoviesCarousel);
             UpcomingMoviesPanel.Visible = upcomingMovies.Length > 0;
         }
 
-
         private async Task LoadNowPlayingMovies()
         {
             var nowPlayingMovies = await Task.Run(() => _movieServiceClient.GetNowPlayingMovies());
-
-            // Display movies and control visibility
             DisplayMovies(nowPlayingMovies, NowPlayingMoviesCarousel);
             NowPlayingMoviesPanel.Visible = nowPlayingMovies.Length > 0;
         }
@@ -112,17 +100,6 @@ namespace Project445
 
                 carouselItem.Controls.Add(movieCard);
                 carouselInner.Controls.Add(carouselItem);
-            }
-        }
-
-
-
-        protected void Page_Unload(object sender, EventArgs e)
-        {
-            // Clean up the client after use
-            if (_movieServiceClient != null)
-            {
-                _movieServiceClient.Close();
             }
         }
     }

@@ -1,12 +1,29 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Project445.Home" Async="true" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Member.aspx.cs" Inherits="Project445.Member" Async="true" %>
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Movie Home</title>
-     <style>
+    <title>Member Page</title>
+    <style>
         .container { padding: 20px; }
         .search-bar { margin-bottom: 20px; }
+        .user-profile { position: absolute; top: 20px; right: 20px; cursor: pointer; }
+        .user-profile:hover .dropdown-menu { display: block; }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            margin: 5px 0;
+        }
 
         /* Carousel styling */
         .carousel { position: relative; overflow: hidden; width: 100%; height: 450px; }
@@ -83,12 +100,16 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <div class="button-group">
-                <asp:Button ID="Button2" runat="server" Text="Go to Staff Login" CssClass="btn" OnClick="StaffLoginButton_Click" />
+            <!-- User Profile Icon -->
+            <div class="user-profile" runat="server" id="UserProfile">
+                <img src="user-icon.png" alt="User Profile" style="width: 50px; height: 50px; border-radius: 50%;" />
+                <div class="dropdown-menu">
+                    <asp:Label ID="UserNameLabel" runat="server" Text="Welcome, User"></asp:Label>
+                    <a href="ChangePassword.aspx">Change Password</a>
+                    <a href="Home.aspx">Logout</a>
+                </div>
             </div>
 
-
-            <!-- Home Button -->
             <div class="home-button">
                 <asp:LinkButton ID="HomeButton" runat="server" Text="Home" OnClick="HomeButton_Click" CssClass="btn" />
             </div>
@@ -101,11 +122,8 @@
 
             <h1>Welcome to the Movie Application</h1>
             <p>Discover upcoming movies and explore what's currently playing in theaters!</p>
-            <div class="button-group">
-                <asp:Button ID="LoginButton" runat="server" Text="Go to Login" CssClass="btn" OnClick="LoginButton_Click" />
-            </div>
 
- <!-- Upcoming Movies Carousel -->
+            <!-- Upcoming Movies Carousel -->
             <asp:Panel ID="UpcomingMoviesPanel" runat="server" Visible="false">
                 <h3>Upcoming Movies</h3>
                 <div class="carousel">
@@ -117,7 +135,7 @@
                 </div>
             </asp:Panel>
 
-             <!-- Now Playing Movies Carousel -->
+            <!-- Now Playing Movies Carousel -->
             <asp:Panel ID="NowPlayingMoviesPanel" runat="server" Visible="false">
                 <h3>Now Playing in Theaters</h3>
                 <div class="carousel">
@@ -134,41 +152,38 @@
                 <h3>Search Results</h3>
                 <div class="movie-row" id="SearchResultsSection" runat="server"></div>
             </asp:Panel>
-
         </div>
     </form>
 
-     <script>
-         let slideIndex = {};
+    <script>
+        let slideIndex = {};
 
-         function showSlide(containerId, index) {
-             const carouselInner = document.getElementById(containerId);
-             if (carouselInner) {
-                 const totalItems = carouselInner.children.length;
-                 if (totalItems > 0) {
-                     slideIndex[containerId] = (index + totalItems) % totalItems;
-                     carouselInner.style.transform = `translateX(-${slideIndex[containerId] * 100}%)`;
-                 }
-             }
-         }
+        function showSlide(containerId, index) {
+            const carouselInner = document.getElementById(containerId);
+            if (carouselInner) {
+                const totalItems = carouselInner.children.length;
+                if (totalItems > 0) {
+                    slideIndex[containerId] = (index + totalItems) % totalItems;
+                    carouselInner.style.transform = `translateX(-${slideIndex[containerId] * 100}%)`;
+                }
+            }
+        }
 
-         function nextSlide(containerId) {
-             showSlide(containerId, slideIndex[containerId] + 1);
-         }
+        function nextSlide(containerId) {
+            showSlide(containerId, slideIndex[containerId] + 1);
+        }
 
-         function previousSlide(containerId) {
-             showSlide(containerId, slideIndex[containerId] - 1);
-         }
+        function previousSlide(containerId) {
+            showSlide(containerId, slideIndex[containerId] - 1);
+        }
 
-         setInterval(() => {
-             nextSlide('UpcomingMoviesCarousel');
-             nextSlide('NowPlayingMoviesCarousel');
-         }, 5000);
+        setInterval(() => {
+            nextSlide('UpcomingMoviesCarousel');
+            nextSlide('NowPlayingMoviesCarousel');
+        }, 5000);
 
-         slideIndex['UpcomingMoviesCarousel'] = 0;
-         slideIndex['NowPlayingMoviesCarousel'] = 0;
-     </script>
+        slideIndex['UpcomingMoviesCarousel'] = 0;
+        slideIndex['NowPlayingMoviesCarousel'] = 0;
+    </script>
 </body>
 </html>
-
-

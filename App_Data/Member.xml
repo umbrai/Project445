@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Members>
+  <Member>
+    <UserName>user123</UserName>
+    <PasswordHash>b2e98ad6f6eb8508dd6a14cfa704bad7</PasswordHash>
+  </Member>
+  <Member>
+    <UserName>tom</UserName>
+    <PasswordHash>03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4</PasswordHash>
+  </Member>
+</Members>
