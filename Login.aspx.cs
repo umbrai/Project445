@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 using System.Web.UI;
 using System.Xml.Linq;
 
@@ -21,6 +22,13 @@ namespace Project445
             {
                 // Store the logged-in user in the session
                 Session["LoggedInUser"] = userId;
+
+
+                HttpCookie userCookie = new HttpCookie("UserProfile");
+                userCookie["UserID"] = userId;
+                userCookie.Expires = DateTime.Now.AddHours(1); // Set expiry time
+                Response.Cookies.Add(userCookie);
+
 
                 // Redirect to the Member page
                 Response.Redirect("Member.aspx", false);

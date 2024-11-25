@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.UI.WebControls;
 using Project445.MovieService;
 
@@ -14,10 +15,17 @@ namespace Project445
         {
             if (Session["LoggedInUser"] == null)
             {
-                // Redirect to the Login page without ending the thread
-                Response.Redirect("Login.aspx", false);
-                Context.ApplicationInstance.CompleteRequest(); // Ensures the redirection is completed
-                return; // Prevent further execution
+                // Attempt to retrieve user from cookies
+                HttpCookie userCookie = Request.Cookies["UserProfile"];
+                if (userCookie != null)
+                {
+                    Session["LoggedInUser"] = userCookie["UserID"];
+                }
+                else
+                {
+                    // Redirect to login if no session or cookie
+                    Response.Redirect("Login.aspx");
+                }
             }
 
             if (!IsPostBack)
@@ -102,5 +110,30 @@ namespace Project445
                 carouselInner.Controls.Add(carouselItem);
             }
         }
+
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Clear session
+            Session.Clear();
+            Session.Abandon();
+
+            // Clear cookies
+            if (Request.Cookies["UserProfile"] != null)
+            {
+                HttpCookie cookie = new HttpCookie("UserProfile")
+                {
+                    Expires = DateTime.Now.AddDays(-1) // Expire the cookie
+                };
+                Response.Cookies.Add(cookie);
+            }
+
+            // Redirect to Login page
+            Response.Redirect("Home.aspx");
+        }
+
     }
+
+    
+
 }
