@@ -1,9 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Memberships.aspx.cs" Inherits="Project445.Memberships" %>
+﻿<%@ Page Title="Memberships" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Memberships.aspx.cs" Inherits="Project445.Memberships" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Memberships</title>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .membership-table {
             width: 70%;
@@ -25,25 +22,23 @@
             max-width: 400px;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <h1 style="text-align:center;">Our Membership Plans</h1>
-        <asp:GridView ID="gvMemberships" runat="server" CssClass="membership-table" AutoGenerateColumns="False">
-            <Columns>
-                <asp:BoundField DataField="Name" HeaderText="Membership Plan" />
-                <asp:BoundField DataField="Duration" HeaderText="Duration" />
-                <asp:TemplateField HeaderText="Description">
-                    <ItemTemplate>
-                        <div class="membership-description">
-                            <%# Eval("Description") %>
-                        </div>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" />
-            </Columns>
-            <HeaderStyle BackColor="#f2f2f2" />
-        </asp:GridView>
-    </form>
-</body>
-</html>
+</asp:Content>
+
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
+    <h1 style="text-align:center;">Our Membership Plans</h1>
+    <asp:GridView ID="gvMemberships" runat="server" CssClass="membership-table" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="Name" HeaderText="Membership Plan" />
+            <asp:BoundField DataField="Duration" HeaderText="Duration" />
+            <asp:TemplateField HeaderText="Description">
+                <ItemTemplate>
+                    <div class="membership-description">
+                        <%# Eval("Description") %>
+                    </div>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" />
+        </Columns>
+        <HeaderStyle BackColor="#f2f2f2" />
+    </asp:GridView>
+</asp:Content>

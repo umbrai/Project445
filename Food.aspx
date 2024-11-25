@@ -1,9 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Food.aspx.cs" Inherits="Project445.Food" %>
+﻿<%@ Page Title="Menu" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Food.aspx.cs" Inherits="Project445.Food" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Menu</title>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .menu-table {
             width: 80%;
@@ -27,21 +24,20 @@
             height: auto;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <asp:GridView ID="gvMenuItems" runat="server" CssClass="menu-table" AutoGenerateColumns="False">
-            <Columns>
-                <asp:TemplateField HeaderText="Image">
-                    <ItemTemplate>
-                        <asp:Image ID="imgMenuItem" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText='<%# Eval("Name") %>' />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="Name" HeaderText="Menu Item" />
-                <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" />
-            </Columns>
-            <HeaderStyle BackColor="#f2f2f2" />
-        </asp:GridView>
-    </form>
-</body>
-</html>
+</asp:Content>
+
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
+    <h1 style="text-align:center;">Our Menu</h1>
+    <asp:GridView ID="gvMenuItems" runat="server" CssClass="menu-table" AutoGenerateColumns="False">
+        <Columns>
+            <asp:TemplateField HeaderText="Image">
+                <ItemTemplate>
+                    <asp:Image ID="imgMenuItem" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText='<%# Eval("Name") %>' />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="Name" HeaderText="Menu Item" />
+            <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" />
+        </Columns>
+        <HeaderStyle BackColor="#f2f2f2" />
+    </asp:GridView>
+</asp:Content>
