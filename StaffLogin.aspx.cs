@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 using System.Web.UI;
 using System.Xml.Linq;
 namespace Project445
@@ -19,6 +20,11 @@ namespace Project445
             {
                 // Store logged-in staff in session
                 Session["StaffUser"] = username;
+
+                HttpCookie staffCookie = new HttpCookie("StaffProfile");
+                staffCookie["Username"] = username;
+                staffCookie.Expires = DateTime.Now.AddHours(1); // Set expiry time
+                Response.Cookies.Add(staffCookie);
 
                 // Redirect to Staff page
                 Response.Redirect("Staff.aspx");

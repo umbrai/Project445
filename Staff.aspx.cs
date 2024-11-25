@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
 
 namespace Project445
@@ -10,7 +11,17 @@ namespace Project445
             // Check if the user is logged in as staff
             if (Session["StaffUser"] == null)
             {
-                Response.Redirect("StaffLogin.aspx");
+                // Attempt to retrieve staff from cookies
+                HttpCookie staffCookie = Request.Cookies["StaffProfile"];
+                if (staffCookie != null)
+                {
+                    Session["StaffUser"] = staffCookie["Username"];
+                }
+                else
+                {
+                    // Redirect to staff login if no session or cookie
+                    Response.Redirect("StaffLogin.aspx");
+                }
             }
         }
     }
