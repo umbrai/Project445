@@ -5,6 +5,30 @@
 <head runat="server">
     <title>Staff Management</title>
     <style>
+    .dropdown-menu {
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .dropdown-item {
+        display: block;
+        padding: 5px 10px;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f0f0f0;
+    }
+
+
+
         .container {
             padding: 20px;
             font-family: Arial, sans-serif;
@@ -61,19 +85,26 @@
                 <button type="button" runat="server" onserverclick="AddStaff_Click">Add Staff</button>
             </div>
 
+            <div style="position: absolute; top: 10px; right: 10px;">
+                <asp:ImageButton ID="userIcon" runat="server" ImageUrl="~/path_to_icon.png" ToolTip="User Options" OnClick="UserIcon_Click" />
+                <asp:Panel ID="userOptionsPanel" runat="server" Visible="false" CssClass="dropdown-menu">
+                    <asp:Label ID="lblLoggedInUser" runat="server" CssClass="dropdown-item"></asp:Label>
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" CssClass="dropdown-item" />
+                </asp:Panel>
+            </div>
+
+
+
             <!-- Existing Staff -->
             <div class="list-section">
                 <h3>Existing Staff</h3>
-                <asp:GridView ID="gvStaff" runat="server" AutoGenerateColumns="false" GridLines="None">
+                <asp:GridView ID="gvStaff" runat="server" AutoGenerateColumns="false" OnRowDeleting="gvStaff_RowDeleting" DataKeyNames="Username">
                     <Columns>
                         <asp:BoundField DataField="Username" HeaderText="Username" />
-                        <asp:TemplateField HeaderText="Actions">
-                            <ItemTemplate>
-                                <asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("Username") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <asp:CommandField ShowDeleteButton="true" />
                     </Columns>
                 </asp:GridView>
+
             </div>
         </div>
     </form>

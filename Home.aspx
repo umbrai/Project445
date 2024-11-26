@@ -1,8 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Project445.Home" Async="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Home.aspx.cs" Inherits="Project445.Home" Async="true" %>
 
-<!DOCTYPE html>
-<html>
-<head runat="server">
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <title>Movie Home</title>
      <style>
         .container { padding: 20px; }
@@ -79,9 +77,8 @@
             font-size: 16px; 
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
         <div class="container">
             <div class="button-group">
                 <asp:Button ID="Button2" runat="server" Text="Go to Staff Login" CssClass="btn" OnClick="StaffLoginButton_Click" />
@@ -136,7 +133,6 @@
             </asp:Panel>
 
         </div>
-    </form>
 
      <script>
          let slideIndex = {};
@@ -168,7 +164,6 @@
          slideIndex['UpcomingMoviesCarousel'] = 0;
          slideIndex['NowPlayingMoviesCarousel'] = 0;
      </script>
-</body>
-</html>
+</asp:Content>
 
 

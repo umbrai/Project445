@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.UI.WebControls;
 using Project445.MovieService;
 
@@ -9,17 +10,36 @@ namespace Project445
     public partial class Home : System.Web.UI.Page
     {
         private readonly Service1Client _movieServiceClient = new Service1Client();
-
-
-
         protected async void Page_Load(object sender, EventArgs e)
         {
+            // Check if user is logged in via session or cookie
+            if (Session["LoggedInUser"] != null)
+            {
+                // Redirect to Member.aspx if user is logged in
+                Response.Redirect("Member.aspx", false); // Pass false to avoid ThreadAbortException
+                Context.ApplicationInstance.CompleteRequest(); // Signal the end of the request
+                return;
+            }
+
+            HttpCookie userCookie = Request.Cookies["UserProfile"];
+            if (userCookie != null && !string.IsNullOrEmpty(userCookie["UserID"]))
+            {
+                // Set session if cookie exists and redirect
+                Session["LoggedInUser"] = userCookie["UserID"];
+                Response.Redirect("Member.aspx", false);
+                Context.ApplicationInstance.CompleteRequest();
+                return;
+            }
+
+            // Only load movies if no user is logged in
             if (!IsPostBack)
             {
                 await LoadUpcomingMovies();
                 await LoadNowPlayingMovies();
             }
         }
+
+
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
