@@ -1,12 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Member.aspx.cs" Inherits="Project445.Member" Async="true" %>
-<!DOCTYPE html>
-<html>
-<head runat="server">
-    <title>Member Page</title>
+﻿<%@ Page Title="Member" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Member.aspx.cs" Inherits="Project445.Member" Async="true" %>
+
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <style>
         .container { padding: 20px; }
         .search-bar { margin-bottom: 20px; }
-        .user-profile { position: absolute; top: 20px; right: 20px; cursor: pointer; }
+        .user-profile { position: absolute; top: 100px; right: 60px; cursor: pointer; }
         .user-profile:hover .dropdown-menu { display: block; }
 
         .dropdown-menu {
@@ -96,9 +94,9 @@
             font-size: 16px; 
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
+    
         <div class="container">
             <!-- User Profile Icon -->
             <div class="user-profile" runat="server" id="UserProfile">
@@ -153,7 +151,7 @@
                 <div class="movie-row" id="SearchResultsSection" runat="server"></div>
             </asp:Panel>
         </div>
-    </form>
+    
 
     <script>
         let slideIndex = {};
@@ -185,5 +183,4 @@
         slideIndex['UpcomingMoviesCarousel'] = 0;
         slideIndex['NowPlayingMoviesCarousel'] = 0;
     </script>
-</body>
-</html>
+</asp:Content>

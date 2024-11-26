@@ -13,5 +13,11 @@ namespace Project445
         {
 
         }
+
+        protected string GetActiveClass(string page)
+        {
+            string currentPage = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
+            return currentPage.Equals(page, StringComparison.OrdinalIgnoreCase) ? "active" : string.Empty;
+        }
     }
 }

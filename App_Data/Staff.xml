@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Staff>
-  <Member>
+  <StaffMember>
+    <Username>tom</Username>
+    <Password>A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=</Password>
+  </StaffMember>
+  <StaffMember>
     <Username>TA</Username>
-    <Password>Cse445!</Password>
-  </Member>
-  <User>
-    <Username>ariel</Username>
-    <Password>MTIzNA==</Password>
-  </User>
+    <Password>2Fsi8IkPXoLXaWcDcVbyoL93m81EEjvVovp6spmiidY=</Password>
+  </StaffMember>
 </Staff>
