@@ -5,27 +5,27 @@
 <head runat="server">
     <title>Staff Management</title>
     <style>
-    .dropdown-menu {
-        position: absolute;
-        top: 40px;
-        right: 10px;
-        background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 10px;
-        z-index: 1000;
-    }
+        .dropdown-menu {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            z-index: 1000;
+        }
 
-    .dropdown-item {
-        display: block;
-        padding: 5px 10px;
-        text-align: left;
-        cursor: pointer;
-    }
+        .dropdown-item {
+            display: block;
+            padding: 5px 10px;
+            text-align: left;
+            cursor: pointer;
+        }
 
-    .dropdown-item:hover {
-        background-color: #f0f0f0;
-    }
+        .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
 
 
 
@@ -85,12 +85,22 @@
                 <button type="button" runat="server" onserverclick="AddStaff_Click">Add Staff</button>
             </div>
 
-            <div style="position: absolute; top: 10px; right: 10px;">
-                <asp:ImageButton ID="userIcon" runat="server" ImageUrl="~/path_to_icon.png" ToolTip="User Options" OnClick="UserIcon_Click" />
-                <asp:Panel ID="userOptionsPanel" runat="server" Visible="false" CssClass="dropdown-menu">
-                    <asp:Label ID="lblLoggedInUser" runat="server" CssClass="dropdown-item"></asp:Label>
-                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" CssClass="dropdown-item" />
-                </asp:Panel>
+             
+            <div style="position: absolute; top: 10px; right: 10px;" class="user-dropdown">
+                
+                <div class="dropdown-menu">
+                    <asp:Label 
+                        ID="lblLoggedInUser" 
+                        runat="server" 
+                        CssClass="dropdown-item">
+                    </asp:Label>
+                    <asp:Button 
+                        ID="btnLogout" 
+                        runat="server" 
+                        Text="Logout" 
+                        OnClick="btnLogout_Click" 
+                        CssClass="dropdown-item" />
+                </div>
             </div>
 
 

@@ -30,13 +30,13 @@ namespace Project445
             }
         }
 
-        protected void UserIcon_Click(object sender, EventArgs e)
+       /* protected void UserIcon_Click(object sender, EventArgs e)
         {
             userOptionsPanel.Visible = !userOptionsPanel.Visible; // Toggle visibility
         }
 
 
-
+*/
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             // Clear the staff profile cookie
@@ -48,7 +48,7 @@ namespace Project445
             }
 
             // Redirect to login page
-            Response.Redirect("StaffLogin.aspx");
+            Response.Redirect("Home.aspx");
         }
 
 

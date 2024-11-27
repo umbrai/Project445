@@ -102,12 +102,12 @@
         <asp:TextBox ID="txtLoginUserID" runat="server"></asp:TextBox>
 
         <label for="txtLoginPassword">Password:</label>
-        <asp:TextBox ID="txtLoginPassword" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="txtLoginPassword" runat="server" TextMode="Password" onkeypress="handleEnter(event)"></asp:TextBox>
 
         <label for="txtRegisterCaptcha">Enter CAPTCHA:</label>
         <div class="captcha-section">
             <img src="Captcha.aspx" alt="CAPTCHA" />
-            <asp:TextBox ID="txtRegisterCaptcha" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtRegisterCaptcha" runat="server" onkeypress="handleEnter(event)"></asp:TextBox>
         </div>
 
         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="submit-btn" />
@@ -120,7 +120,7 @@
         <asp:TextBox ID="txtRegisterUserID" runat="server"></asp:TextBox>
 
         <label for="txtRegisterPassword">Password:</label>
-        <asp:TextBox ID="txtRegisterPassword" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="txtRegisterPassword" runat="server" TextMode="Password" ></asp:TextBox>
 
         
 
@@ -140,6 +140,13 @@
 
             document.getElementById(tab).classList.add('active');
             event.target.classList.add('active');
+        }
+
+        function handleEnter(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent the default form submission behavior
+                document.getElementById('<%= btnLogin.ClientID %>').click(); 
+            }
         }
     </script>
 </body>

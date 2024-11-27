@@ -4,7 +4,7 @@
     <style>
         .container { padding: 20px; }
         .search-bar { margin-bottom: 20px; }
-        .user-profile { position: absolute; top: 100px; right: 60px; cursor: pointer; }
+        .user-profile { position: absolute; top: 100px; right: 130px; cursor: pointer; }
         .user-profile:hover .dropdown-menu { display: block; }
 
         .dropdown-menu {
@@ -100,7 +100,7 @@
         <div class="container">
             <!-- User Profile Icon -->
             <div class="user-profile" runat="server" id="UserProfile">
-                <img src="user-icon.png" alt="User Profile" style="width: 50px; height: 50px; border-radius: 50%;" />
+                <img src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" alt="User Profile" style="width: 50px; height: 50px; border-radius: 50%;" />
                 <div class="dropdown-menu">
                     <asp:Label ID="UserNameLabel" runat="server" Text="Welcome, User"></asp:Label>
                     <a href="ChangePassword.aspx">Change Password</a>
@@ -114,7 +114,7 @@
 
             <!-- Search Bar Section -->
             <div class="search-bar">
-                <asp:TextBox ID="SearchBox" runat="server" placeholder="Search movies..." CssClass="search-input" />
+                <asp:TextBox ID="SearchBox" runat="server" placeholder="Search movies..." CssClass="search-input" onkeypress="handleEnter(event)"/>
                 <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" />
             </div>
 
@@ -182,5 +182,13 @@
 
         slideIndex['UpcomingMoviesCarousel'] = 0;
         slideIndex['NowPlayingMoviesCarousel'] = 0;
+
+
+        function handleEnter(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent the default form submission behavior
+                document.getElementById('<%= SearchButton.ClientID %>').click(); // Trigger the search button click
+            }
+        }
     </script>
 </asp:Content>
