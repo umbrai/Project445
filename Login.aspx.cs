@@ -6,6 +6,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Xml.Linq;
+using SecurityLibrary;
 
 namespace Project445
 {
@@ -41,6 +42,11 @@ namespace Project445
             }
         }
 
+        protected void StaffLoginButton_Click(object sender, EventArgs e)
+        {
+            // Redirect to Login page
+            Response.Redirect("StaffLogin.aspx");
+        }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
@@ -126,11 +132,13 @@ namespace Project445
 
         private string HashPassword(string password)
         {
-            using (SHA256 sha256 = SHA256.Create())
+            return Class1.ComputeSHA256Hash(password);
+
+            /*using (SHA256 sha256 = SHA256.Create())
             {
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
                 return BitConverter.ToString(bytes).Replace("-", "").ToLower();
-            }
+            }*/
         }
     }
 }

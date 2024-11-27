@@ -84,10 +84,16 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
+             <div class="button-group">
+                <asp:Button ID="Button2" runat="server" Text="Go to Staff Login" CssClass="btn" OnClick="StaffLoginButton_Click" />
+            </div>
+
     <div class="tab-container">
         <button type="button" class="tab-btn active" onclick="showTab('login')">Login</button>
         <button type="button" class="tab-btn" onclick="showTab('register')">Register</button>
     </div>
+
+            
 
     <!-- Login Form -->
     <div id="login" class="form-container active">
@@ -97,6 +103,12 @@
 
         <label for="txtLoginPassword">Password:</label>
         <asp:TextBox ID="txtLoginPassword" runat="server" TextMode="Password"></asp:TextBox>
+
+        <label for="txtRegisterCaptcha">Enter CAPTCHA:</label>
+        <div class="captcha-section">
+            <img src="Captcha.aspx" alt="CAPTCHA" />
+            <asp:TextBox ID="txtRegisterCaptcha" runat="server"></asp:TextBox>
+        </div>
 
         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="submit-btn" />
     </div>
@@ -110,11 +122,7 @@
         <label for="txtRegisterPassword">Password:</label>
         <asp:TextBox ID="txtRegisterPassword" runat="server" TextMode="Password"></asp:TextBox>
 
-        <label for="txtRegisterCaptcha">Enter CAPTCHA:</label>
-        <div class="captcha-section">
-            <img src="Captcha.aspx" alt="CAPTCHA" />
-            <asp:TextBox ID="txtRegisterCaptcha" runat="server"></asp:TextBox>
-        </div>
+        
 
         <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" CssClass="submit-btn" />
     </div>

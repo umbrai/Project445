@@ -53,12 +53,7 @@ namespace Project445
             Response.Redirect("Home.aspx");
         }
 
-        protected void StaffLoginButton_Click(object sender, EventArgs e)
-        {
-            // Redirect to Login page
-            Response.Redirect("StaffLogin.aspx");
-        }
-
+       
         protected async void SearchButton_Click(object sender, EventArgs e)
         {
             UpcomingMoviesPanel.Visible = false;

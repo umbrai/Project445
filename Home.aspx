@@ -80,9 +80,7 @@
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
         <div class="container">
-            <div class="button-group">
-                <asp:Button ID="Button2" runat="server" Text="Go to Staff Login" CssClass="btn" OnClick="StaffLoginButton_Click" />
-            </div>
+           
 
 
             <!-- Home Button -->
